@@ -134,6 +134,7 @@ Array.prototype.doubler = function () {
   for (var i = 0; i < this.length; i++) {
     this[i]*=2;
   }
+  return this;
 }
 
 
@@ -158,7 +159,7 @@ function Chimichanga() {
 
 function sentenceMachine(partOne) {
   return function sentenceSmasher(partTwo) {
-    return this.partOne + partTwo;
+    return partOne + partTwo;
   }
 }
 
@@ -178,11 +179,12 @@ function sentenceMachine(partOne) {
 // ```
 function subway(personName) {
   var name = personName;
-  var ingredients = []
+  var ingredtArr = [];
   return function addIngredient(newIngredient) {
+    ingredtArr.push(newIngredient);
     return {
       orderPerson: name,
-      ingredients: ingredients.push(newIngredient)
+      ingredients: ingredtArr
     }
   }
 
