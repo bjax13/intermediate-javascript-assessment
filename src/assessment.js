@@ -198,7 +198,7 @@ function subway(personName) {
 // If both parameters have the same value but are different types return "Different types"
 // Otherwise return "Different values"
 
-function typeCheck(param1, param2) {
+function compareValues(param1, param2) {
     if (typeof param1 === typeof param2){
       return "Exact match";
     }else if (param1 == param2) {
