@@ -52,16 +52,25 @@ var foo;
 */
 function async() {
 
+
   return $q(function(resolve, reject) {
     setTimeout(function() {
-      foo = 'bar'
-        resolve(foo = 'bar');
-
+      if (!foo) {
+        foo = 'bar';
+        resolve (foo);
+      }else {
+        reject("really?")
+      }
     }, 1000);
-
   });
-
 }
+
+var promise = async();
+promise.then(function() {
+  foo = 'bar';
+}, function(reason) {
+  alert('Failed: ');
+});
 
 
 // #3  ###################
